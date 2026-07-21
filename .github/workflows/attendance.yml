@@ -61,8 +61,10 @@ jobs:
           fi
 
       - name: Reconstruct Storage State
+        env:
+          STATE_SECRET: ${{ secrets.PLAYWRIGHT_STORAGE_STATE }}
         run: |
-          echo "${{ secrets.PLAYWRIGHT_STORAGE_STATE }}" > storage_state.json
+          python -c "import os; open('storage_state.json', 'w', encoding='utf-8').write(os.environ['STATE_SECRET'])"
           
       - name: Run Attendance Bot
         env:
