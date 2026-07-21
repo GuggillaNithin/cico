@@ -33,10 +33,6 @@ class Config:
     # URL Configuration
     ATTENDANCE_URL = get_env_variable("ATTENDANCE_URL", required=True)
     
-    # Authentication (Google Sign-In)
-    GOOGLE_EMAIL = get_env_variable("GOOGLE_EMAIL", required=True)
-    GOOGLE_PASSWORD = get_env_variable("GOOGLE_PASSWORD", required=True)
-    
     # Email Notification Settings
     SMTP_SERVER = get_env_variable("SMTP_SERVER", required=True)
     SMTP_PORT = int(get_env_variable("SMTP_PORT", required=False, default="465"))
